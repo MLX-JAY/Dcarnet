@@ -6,6 +6,15 @@ function getRandomColorRGB() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b}`;
 }
+let mouse =false;
+document.addEventListener("mousedown",()=>
+    {
+        mouse=true;
+    })
+document.addEventListener("mouseup",()=>
+    {
+        mouse=false;
+    })
 button.addEventListener("click",()=>
     {
         grid.innerHTML="";
@@ -22,9 +31,12 @@ button.addEventListener("click",()=>
         let squares=document.querySelectorAll(".square");
         squares.forEach(square=>square.addEventListener("mouseenter",()=>
         {
-            let currentOpacity = parseFloat(square.dataset.opacity);
-            currentOpacity =currentOpacity + 0.3;
-            square.dataset.opacity=`${currentOpacity}`;
-            square.style.backgroundColor = `${getRandomColorRGB()} , ${currentOpacity})`;
+            if (mouse)
+            {
+                let currentOpacity = parseFloat(square.dataset.opacity);
+                currentOpacity =currentOpacity + 0.3;
+                square.dataset.opacity=`${currentOpacity}`;
+                square.style.backgroundColor = `${getRandomColorRGB()} , ${currentOpacity})`;
+            }
         }))
     })
