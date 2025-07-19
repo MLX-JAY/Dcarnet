@@ -1,0 +1,24 @@
+.grid 
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.square
+{
+    border:    1px solid black;
+    height: 62px;
+    width: 62px;
+    box-sizing: border-box;
+}
+body
+{
+    display: flex;
+    flex-direction: column;
+   
+}
+.size
+{
+    height: 50px;
+    width: 200px;
+     flex: 1 0 auto;
+}
